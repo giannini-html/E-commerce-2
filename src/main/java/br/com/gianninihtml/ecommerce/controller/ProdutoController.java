@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.gianninihtml.ecommerce.dto.ProdutoCreate;
 import br.com.gianninihtml.ecommerce.dto.ProdutoDTO;
 import br.com.gianninihtml.ecommerce.model.Produto;
 import br.com.gianninihtml.ecommerce.service.ProdutoService;
@@ -20,7 +21,7 @@ import br.com.gianninihtml.ecommerce.repository.ProdutoRepository;
 
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/produtos")
 public class ProdutoController {
 
 	@Autowired
@@ -41,7 +42,7 @@ public class ProdutoController {
 	}
 
 	@PostMapping
-	public Produto create(@RequestBody ProdutoDTO dto) {
+	public Produto create(@RequestBody ProdutoCreate dto) {
 
 		Produto produto = new Produto();
 

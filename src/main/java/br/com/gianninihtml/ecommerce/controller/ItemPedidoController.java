@@ -20,7 +20,7 @@ import br.com.gianninihtml.ecommerce.repository.ItemPedidoRepository;
 
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/itensPedidos")
 public class ItemPedidoController {
 
 	@Autowired
