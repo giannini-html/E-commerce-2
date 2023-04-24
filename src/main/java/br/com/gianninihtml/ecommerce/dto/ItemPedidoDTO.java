@@ -1,42 +1,16 @@
-package br.com.gianninihtml.ecommerce.model;
+package br.com.gianninihtml.ecommerce.dto;
 
 import java.math.BigDecimal;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import br.com.gianninihtml.ecommerce.model.ItemPedido;
 
-@Entity
-@Table(name = "itens_pedido")
-public class ItemPedido {
+public class ItemPedidoDTO {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long sequencia;
-	
-	@Column(name = "numero_pedido")
 	private Long numero_pedido;
-	
-	@Column(name = "codigo_produto")
 	private Long codigo_produto;
-	
-	@Column(name = "quantidade")
 	private BigDecimal quantidade;
-	
-	@Column(name = "valor_total")
 	private BigDecimal valor_total;
-
-	public Long getSequencia() {
-		return sequencia;
-	}
-
-	public void setSequencia(Long sequencia) {
-		this.sequencia = sequencia;
-	}
-
+	
 	public Long getNumero_pedido() {
 		return numero_pedido;
 	}
@@ -67,5 +41,14 @@ public class ItemPedido {
 
 	public void setValor_total(BigDecimal valor_total) {
 		this.valor_total = valor_total;
+	}
+	
+	public static ItemPedidoDTO toDto(ItemPedido itemPedido) {
+		ItemPedidoDTO dto = new ItemPedidoDTO();
+		dto.setCodigo_produto(itemPedido.getCodigo_produto());
+		dto.setNumero_pedido(itemPedido.getNumero_pedido());		
+		dto.setQuantidade(itemPedido.getQuantidade());		
+		dto.setValor_total(itemPedido.getValor_total());		
+		return dto;
 	}
 }

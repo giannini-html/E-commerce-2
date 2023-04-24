@@ -1,38 +1,19 @@
-package br.com.gianninihtml.ecommerce.model;
+package br.com.gianninihtml.ecommerce.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import br.com.gianninihtml.ecommerce.model.Produto;
 
-@Entity
-@Table(name = "produtos")
-public class Produto {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+public class ProdutoDTO {
+
 	private Long codigo_produto;
-	
-	@Column(name = "nome_produto")
 	private String nome;
-	
-	@Column(name = "preco")
 	private BigDecimal preco;
-
-	@Column(name = "data_validade")
 	private LocalDate data_validade;
-	
-	@Column(name = "data_garantia")
 	private LocalDate data_garantia;
-	
-	@Column(name = "em_estoque")
 	private boolean em_estoque;
-
+	
 	public Long getCodigo_produto() {
 		return codigo_produto;
 	}
@@ -79,5 +60,16 @@ public class Produto {
 
 	public void setEm_estoque(boolean em_estoque) {
 		this.em_estoque = em_estoque;
+	}
+	
+	public static ProdutoDTO toDto(Produto produto) {
+		ProdutoDTO dto = new ProdutoDTO();
+		dto.setCodigo_produto(produto.getCodigo_produto());
+		dto.setNome(produto.getNome());		
+		dto.setPreco(produto.getPreco());		
+		dto.setData_garantia(produto.getData_garantia());		
+		dto.setData_validade(produto.getData_validade());		
+		dto.setEm_estoque(produto.isEm_estoque());		
+		return dto;
 	}
 }

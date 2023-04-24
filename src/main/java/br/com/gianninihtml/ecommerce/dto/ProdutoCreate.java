@@ -1,45 +1,15 @@
-package br.com.gianninihtml.ecommerce.model;
+package br.com.gianninihtml.ecommerce.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+public class ProdutoCreate {
 
-@Entity
-@Table(name = "produtos")
-public class Produto {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long codigo_produto;
-	
-	@Column(name = "nome_produto")
 	private String nome;
-	
-	@Column(name = "preco")
 	private BigDecimal preco;
-
-	@Column(name = "data_validade")
 	private LocalDate data_validade;
-	
-	@Column(name = "data_garantia")
 	private LocalDate data_garantia;
-	
-	@Column(name = "em_estoque")
 	private boolean em_estoque;
-
-	public Long getCodigo_produto() {
-		return codigo_produto;
-	}
-
-	public void setCodigo_produto(Long codigo_produto) {
-		this.codigo_produto = codigo_produto;
-	}
 
 	public String getNome() {
 		return nome;
