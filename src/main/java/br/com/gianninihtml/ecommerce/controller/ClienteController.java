@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.gianninihtml.ecommerce.dto.ClienteCreateDTO;
 import br.com.gianninihtml.ecommerce.dto.ClienteDTO;
 import br.com.gianninihtml.ecommerce.model.Cliente;
 import br.com.gianninihtml.ecommerce.service.ClienteService;
@@ -54,7 +55,7 @@ public class ClienteController {
 	}
 
 	@PutMapping
-	public Cliente update(@RequestBody ClienteDTO dto) {
+	public Cliente update(@RequestBody ClienteCreateDTO dto) {
 
 		if (!clienteRepository.existsById(dto.getCodigo_cliente())) {
 			throw new RuntimeException("Clinte não encontrado " + dto.getCodigo_cliente());

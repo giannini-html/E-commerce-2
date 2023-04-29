@@ -7,10 +7,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "itens_pedido")
+@SequenceGenerator(sequenceName = "ITENS_PEDIDO_SEQ", name = "ITENS_PEDIDO_SEQ")
 public class ItemPedido {
 	
 	@Id
