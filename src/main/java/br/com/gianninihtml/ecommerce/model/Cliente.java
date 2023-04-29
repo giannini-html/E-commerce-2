@@ -22,7 +22,7 @@ public class Cliente {
 	private String inscricao_federal;
 	
 	@Column(name = "cep")
-	private Long cep;
+	private String cep;
 
 	public Long getCodigo_cliente() {
 		return codigo_cliente;
@@ -48,11 +48,11 @@ public class Cliente {
 		this.inscricao_federal = inscricao_federal;
 	}
 
-	public Long getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Long cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 }

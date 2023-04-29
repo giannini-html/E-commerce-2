@@ -2,12 +2,19 @@ package br.com.gianninihtml.ecommerce.dto;
 
 import br.com.gianninihtml.ecommerce.model.Cliente;
 
-public class ClienteDTO {
+public class ClienteCreateDTO {
 	
+	private Long codigo_cliente;
 	private String nome;
 	private String inscricao_federal;
 	private String cep;
 	
+	public Long getCodigo_cliente() {
+		return codigo_cliente;
+	}
+	public void setCodigo_cliente(Long codigo_cliente) {
+		this.codigo_cliente = codigo_cliente;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -27,8 +34,9 @@ public class ClienteDTO {
 		this.cep = cep;
 	}
 	
-	public static ClienteDTO toDto(Cliente cliente) {
-		ClienteDTO dto = new ClienteDTO();
+	public static ClienteCreateDTO toDto(Cliente cliente) {
+		ClienteCreateDTO dto = new ClienteCreateDTO();
+		dto.setCodigo_cliente(cliente.getCodigo_cliente());
 		dto.setNome(cliente.getNome());		
 		dto.setCep(cliente.getCep());		
 		dto.setInscricao_federal(cliente.getInscricao_federal());		
